@@ -1,0 +1,41 @@
+# ~/.tmuxinator/adena.yml
+
+name: Winews
+root: ~/Development/ruby/winews-rails
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t adena
+
+windows:
+  - dev:
+      root: ~/Development/ruby/winews-rails/
+      layout: 65cf,272x57,0,0{156x57,0,0,27,115x57,157,0[115x33,157,0,28,115x23,157,34,29]}
+      panes:
+        - vim
+        - guard
+        - rails c
+  - server:
+      root: ~/Development/ruby/winews-rails/
+      panes:
+        - rails s
